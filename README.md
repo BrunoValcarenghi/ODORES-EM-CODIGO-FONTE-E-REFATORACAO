@@ -55,4 +55,62 @@
 - **Slide 22:** *Long Method* (Método Longo) — Definição e indícios (uso de comentários internos)[cite: 3]
 - **Slide 23:** *Large Class* (Classe Grande) — Excesso de campos e responsabilidades[cite: 3, 4]
 - **Slide 24:** *Primitive Obsession* (Obsessão Primitiva) — Uso exagerado de tipos primitivos para dados do domínio[cite: 4]
-- **Slide 25:** *Long Parameter List*
+- **Slide 25:** *Long Parameter List* (Lista Longa de Parâmetros) — Dificuldade de legibilidade e uso[cite: 4]
+- **Slide 26:** *Data Clumps* (Agrupamentos de Dados) — Variáveis que sempre andam juntas[cite: 4, 5]
+- **Slide 27:** Estudo de Caso / Exemplo Prático: Bloaters
+- **Slide 28:** Quiz Rápido / Discussão sobre Bloaters
+
+### Categoria 2: Object-Orientation Abusers (Abusadores da OO) (~7 slides)[cite: 5]
+- **Slide 29:** Categoria OO Abusers: Aplicação incorreta dos conceitos de OO[cite: 5]
+- **Slide 30:** *Switch Statements* (Instruções Switch) — Ausência de Polimorfismo e fragilidade[cite: 5, 6]
+- **Slide 31:** *Temporary Field* (Campo Temporário) — Atributos usados apenas em momentos isolados[cite: 6]
+- **Slide 32:** *Refused Bequest* (Herança Recusada) — Subclasses que ignoram a interface do pai[cite: 6]
+- **Slide 33:** *Alternative Classes with Different Interfaces* — Classes similares sem padronização[cite: 6, 7]
+- **Slide 34:** Estudo de Caso / Exemplo Prático: Polimorfismo vs. Switch[cite: 5, 6]
+- **Slide 35:** Quiz Rápido / Discussão sobre OO Abusers
+
+### Categoria 3: Change Preventers (Prevenção de Mudanças) (~5 slides)[cite: 7]
+- **Slide 36:** Categoria Change Preventers: A má distribuição de responsabilidades[cite: 7]
+- **Slide 37:** *Divergent Change* (Mudança Divergente) — 1 Classe mudando por múltiplos motivos[cite: 7]
+- **Slide 38:** *Shotgun Surgery* (Cirurgia de Espingarda) — 1 Mudança afetando várias classes[cite: 7]
+- **Slide 39:** *Parallel Inheritance Hierarchies* — Criar subclasses em cadeia[cite: 7, 8]
+- **Slide 40:** Comparativo: Divergent Change vs. Shotgun Surgery[cite: 7]
+
+### Categoria 4: Dispensables (Dispensáveis) (~8 slides)[cite: 8]
+- **Slide 41:** Categoria Dispensables: Elementos redundantes e desnecessários[cite: 8]
+- **Slide 42:** *Comments* (Comentários) — O "desodorante" do código vs. uso legítimo[cite: 8]
+- **Slide 43:** *Duplicate Code* (Código Duplicado) — Duplicação explícita vs. duplicação sutil[cite: 8, 9]
+- **Slide 44:** *Lazy Class* (Classe Preguiçosa) — Classes com pouca ou nenhuma utilidade[cite: 9]
+- **Slide 45:** *Data Class* (Classe de Dados) — "Dados burros" sem comportamento[cite: 9]
+- **Slide 46:** *Dead Code* (Código Morto) — Trechos e variáveis inacessíveis[cite: 9, 10]
+- **Slide 47:** *Speculative Generality* (Generalidade Especulativa) — Código para o futuro que nunca chega[cite: 10]
+- **Slide 48:** Estudo de Caso: Limpeza de Código Dispensável[cite: 8]
+
+### Categoria 5: Couplers (Acopladores) (~6 slides)[cite: 10]
+- **Slide 49:** Categoria Couplers: O risco do acoplamento excessivo[cite: 10]
+- **Slide 50:** *Feature Envy* (Inveja de Recurso) — Regra: "Colocar junto o que muda junto"[cite: 10]
+- **Slide 51:** *Inappropriate Intimacy* (Intimidade Inapropriada) — Violação do Encapsulamento[cite: 10, 11]
+- **Slide 52:** *Message Chains* (Cadeias de Mensagens) — O problema de chamadas em cadeia ($A \to B \to C$)[cite: 11]
+- **Slide 53:** *Middle Man* (Intermediário) — Classes que apenas delegam chamadas[cite: 11]
+- **Slide 54:** Resumo de todos os 21 Odores[cite: 3, 11]
+
+---
+
+## 🛠️ PARTE 4: Refatoração, Ferramentas e Boas Práticas (Fechamento) (~12 a 15 Slides)
+**Objetivo:** Apresentar as soluções, a técnica de refatoração, o ecossistema de ferramentas automatizadas e a conclusão do estudo[cite: 2, 11].
+
+- **Slide 55:** Definição Formal de Refatoração (Modificar a estrutura interna mantendo o comportamento externo)[cite: 2]
+- **Slide 56:** O Processo Incremental: Pequenas alterações acompanhadas de testes[cite: 2]
+- **Slide 57:** O Papel Crucial dos Testes Automatizados na Refatoração[cite: 2]
+- **Slide 58:** Quando Refatorar vs. Quando Reescrever do Zero[cite: 2]
+- **Slide 59:** Principais Técnicas de Refatoração:
+  - Extract Method (Extrair Método)[cite: 3]
+  - Extract Class (Extrair Classe)[cite: 4]
+  - Replace Conditional with Polymorphism (Substituir Condicional por Polimorfismo)[cite: 5, 6]
+- **Slide 60:** Ferramentas Automatizadas de Análise Estática de Código (IDE Linters, SonarQube, PMD, ESLint)
+- **Slide 61:** Refatoração Automatizada nas IDEs (VS Code, IntelliJ, Eclipse)
+- **Slide 62:** Boas Práticas no Ciclo de Desenvolvimento (Code Review, Pair Programming, TDD)
+- **Slide 63:** Conclusão: "Nenhuma técnica de refatoração é universal"[cite: 11]
+- **Slide 64:** Checklist do Desenvolvedor Limpo
+- **Slide 65:** Referências Bibliográficas (Fowler, Sommerville, Refactoring.Guru, Cagnini, Manzano)[cite: 12]
+- **Slide 66:** Pergunta Final / Espaço para Dúvidas e Discussão
