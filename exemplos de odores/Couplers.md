@@ -93,6 +93,63 @@ public class OperacaoBancaria {
 | Dependência | `OperacaoBancaria` conhece e modifica diretamente um atributo interno de `ContaBancaria`. | `OperacaoBancaria` solicita o depósito por meio de um método público. |
 | Manutenção | Alterações na representação interna do saldo podem afetar as classes que o acessam diretamente. | As regras de depósito ficam centralizadas em `ContaBancaria`, facilitando a manutenção. |
 
+## Incomplete Library Class
+
+Uma classe de biblioteca incompleta ocorre quando uma biblioteca externa é útil, mas não oferece uma operação necessária. Como não é possível modificar diretamente o código da biblioteca, a funcionalidade ausente acaba sendo repetida ou espalhada pelo sistema.
+
+Antes:
+```java
+import java.time.LocalDate;
+
+public class RelatorioVendas {
+    public boolean ocorreuNoFimDeSemana(LocalDate data) {
+        int dia = data.getDayOfWeek().getValue();
+        return dia == 6 || dia == 7;
+    }
+}
+
+public class AgendaEntrega {
+    public boolean ocorreuNoFimDeSemana(LocalDate data) {
+        int dia = data.getDayOfWeek().getValue();
+        return dia == 6 || dia == 7;
+    }
+}
+```
+
+Depois, usando *Introduce Foreign Method*:
+```java
+import java.time.LocalDate;
+
+public final class Datas {
+    private Datas() {
+    }
+
+    public static boolean ocorreuNoFimDeSemana(LocalDate data) {
+        int dia = data.getDayOfWeek().getValue();
+        return dia == 6 || dia == 7;
+    }
+}
+
+public class RelatorioVendas {
+    public boolean ocorreuNoFimDeSemana(LocalDate data) {
+        return Datas.ocorreuNoFimDeSemana(data);
+    }
+}
+
+public class AgendaEntrega {
+    public boolean ocorreuNoFimDeSemana(LocalDate data) {
+        return Datas.ocorreuNoFimDeSemana(data);
+    }
+}
+```
+
+| Aspecto | Antes da refatoração | Depois da refatoração |
+|---|---|---|
+| Limitação da biblioteca | `LocalDate` não possui a operação específica esperada pela aplicação. | A operação complementar fica disponível em uma classe local. |
+| Repetição | Cada classe implementa novamente a mesma verificação. | A regra fica centralizada em `Datas.ocorreuNoFimDeSemana()`. |
+| Manutenção | Uma mudança na regra precisa ser repetida em todos os consumidores. | A regra pode ser alterada em um único ponto sem modificar a biblioteca externa. |
+| Técnica | A funcionalidade ausente é recriada em diferentes classes. | Foi aplicado *Introduce Foreign Method*; para várias operações relacionadas, pode-se considerar *Introduce Local Extension*. |
+
 ## Message Chains
 
 Antes:

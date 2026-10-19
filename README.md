@@ -48,7 +48,7 @@
 ---
 
 ## ☣️ PARTE 3: Exemplos de Odores em Código (~30 a 35 Slides)
-**Objetivo:** Detalhar os 21 odores de código do documento, organizados pelas 5 categorias, apresentando definições e diagramas/código para cada um[cite: 3, 11].
+**Objetivo:** Detalhar os 23 odores de código da taxonomia do Refactoring.Guru, organizados pelas 5 categorias, apresentando definições e diagramas/código para cada um[cite: 3, 11].
 
 ### Categoria 1: Bloaters (Inchaço) (~8 slides)[cite: 3]
 - **Slide 21:** Categoria Bloaters: O que é e como se forma[cite: 3]
@@ -90,9 +90,39 @@
 - **Slide 49:** Categoria Couplers: O risco do acoplamento excessivo[cite: 10]
 - **Slide 50:** *Feature Envy* (Inveja de Recurso) — Regra: "Colocar junto o que muda junto"[cite: 10]
 - **Slide 51:** *Inappropriate Intimacy* (Intimidade Inapropriada) — Violação do Encapsulamento[cite: 10, 11]
-- **Slide 52:** *Message Chains* (Cadeias de Mensagens) — O problema de chamadas em cadeia ($A \to B \to C$)[cite: 11]
-- **Slide 53:** *Middle Man* (Intermediário) — Classes que apenas delegam chamadas[cite: 11]
-- **Slide 54:** Resumo de todos os 21 Odores[cite: 3, 11]
+- **Slide 52:** *Incomplete Library Class* (Classe de Biblioteca Incompleta) — Quando uma biblioteca não oferece uma operação necessária
+- **Slide 53:** *Message Chains* (Cadeias de Mensagens) e *Middle Man* (Intermediário) — O equilíbrio entre acoplamento e delegação[cite: 11]
+- **Slide 54:** Resumo dos 23 Odores e das 5 categorias[cite: 3, 11]
+
+### Ligação entre odores e técnicas de refatoração
+
+As técnicas abaixo são possibilidades de tratamento, e não receitas universais. Antes de aplicá-las, é necessário confirmar o odor no contexto do projeto e preservar o comportamento observável por meio de testes.
+
+| Categoria | Odor | Principais refatorações relacionadas |
+|---|---|---|
+| Bloaters | *Long Method* | *Extract Method*, *Replace Temp with Query*, *Replace Method with Method Object* |
+| Bloaters | *Large Class* | *Extract Class*, *Extract Subclass*, *Extract Interface* |
+| Bloaters | *Primitive Obsession* | *Replace Data Value with Object*, *Replace Type Code with Class*, *Replace Type Code with Subclasses/State/Strategy* |
+| Bloaters | *Long Parameter List* | *Introduce Parameter Object*, *Preserve Whole Object*, *Replace Parameter with Method Call* |
+| Bloaters | *Data Clumps* | *Extract Class*, *Introduce Parameter Object*, *Preserve Whole Object* |
+| Object-Orientation Abusers | *Switch Statements* | *Replace Conditional with Polymorphism*, *Replace Type Code with Subclasses/State/Strategy*, *Replace Parameter with Explicit Methods* |
+| Object-Orientation Abusers | *Temporary Field* | *Extract Class*, *Replace Method with Method Object*, *Introduce Null Object* |
+| Object-Orientation Abusers | *Refused Bequest* | *Replace Inheritance with Delegation*, *Push Down Method*, *Push Down Field* |
+| Object-Orientation Abusers | *Alternative Classes with Different Interfaces* | *Rename Method*, *Move Method*, *Extract Superclass* |
+| Change Preventers | *Divergent Change* | *Extract Class*, *Extract Superclass*, *Extract Subclass* |
+| Change Preventers | *Shotgun Surgery* | *Move Method*, *Move Field*, *Inline Class* |
+| Change Preventers | *Parallel Inheritance Hierarchies* | *Move Method*, *Move Field* |
+| Dispensables | *Comments* | *Extract Method*, *Rename Method*, *Introduce Assertion* |
+| Dispensables | *Duplicate Code* | *Extract Method*, *Pull Up Method*, *Form Template Method*, *Substitute Algorithm* |
+| Dispensables | *Lazy Class* | *Inline Class*, *Collapse Hierarchy* |
+| Dispensables | *Data Class* | *Encapsulate Field*, *Encapsulate Collection*, *Move Method*, *Extract Method* |
+| Dispensables | *Dead Code* | *Inline Class*, *Collapse Hierarchy*, *Remove Parameter* |
+| Dispensables | *Speculative Generality* | *Collapse Hierarchy*, *Inline Class*, *Remove Parameter* |
+| Couplers | *Feature Envy* | *Move Method*, *Extract Method* |
+| Couplers | *Inappropriate Intimacy* | *Move Method*, *Move Field*, *Encapsulate Field*, *Change Bidirectional Association to Unidirectional* |
+| Couplers | *Incomplete Library Class* | *Introduce Foreign Method*, *Introduce Local Extension* |
+| Couplers | *Message Chains* | *Hide Delegate* |
+| Couplers | *Middle Man* | *Remove Middle Man*, *Inline Method*, *Replace Delegation with Inheritance* |
 
 ---
 
