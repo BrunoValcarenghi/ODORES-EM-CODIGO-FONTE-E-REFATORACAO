@@ -5,3 +5,5 @@
 - **Bruno Machado** - 202411968
 - **Davi** - 202410357
 - **Frederico** - 202411092
+### LINK DO CONTEÚDO DA APRESENTAÇÃO
+- **https://canva.link/yh5n0kazqdyjeue**
